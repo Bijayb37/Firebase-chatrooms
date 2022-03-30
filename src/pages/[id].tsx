@@ -9,7 +9,6 @@ import Sidebar from "../components/Sidebar";
 import { Container } from "../components/Container";
 import { useRouter } from "next/router";
 import { useCollectionData, useDocumentData } from "react-firebase-hooks/firestore";
-import Testing from "../utils/Await";
 import Header from "../components/Header";
 
 

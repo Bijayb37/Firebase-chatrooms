@@ -8,7 +8,8 @@ import {
   ModalCloseButton,
   Box,
   Button,
-  Input
+  Input,
+  Flex
 } from '@chakra-ui/react'
 import { signOut } from "firebase/auth"
 import { addDoc, collection, query, serverTimestamp, where } from "firebase/firestore"
@@ -33,16 +34,22 @@ const Sidebar = (props) => {
     <ChatRooms key={chat.id} id={chat.id} users={chat.data().users} />
   )
   return (
-    <Box
+    <Flex
       height="100vh"
       width="20vw"
       border
-      {...props}>
-      <Button onClick={handleClick} colorScheme='blue'>Logout</Button>
-      <DarkModeSwitch />
-      <ChatModal room />
-      {chats}
-    </Box>
+      direction="column"
+      {...props}
+    >
+      <Flex>
+        <Button onClick={handleClick} colorScheme='blue'>Logout</Button>
+        <DarkModeSwitch />
+        <ChatModal room />
+      </Flex>
+      <Flex direction="column">
+        {chats}
+      </Flex>
+    </Flex>
   )
 }
 export default Sidebar
