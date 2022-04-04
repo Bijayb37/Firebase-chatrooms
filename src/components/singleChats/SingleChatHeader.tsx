@@ -4,7 +4,7 @@ import { collection, query, where } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { db } from "../../../firebaseConfig";
 
-export default function Header({ chatData, user }) {
+export default function SingleChatHeader({ chatData, user }) {
   const { colorMode } = useColorMode()
   const filtered = chatData?.users?.filter(singleUser => singleUser !== user.email)[0]
   const [foundUser] = useCollectionData(

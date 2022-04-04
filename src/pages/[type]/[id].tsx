@@ -8,10 +8,9 @@ import Chatbox from "../../components/Chatbox";
 import Sidebar from "../../components/Sidebar";
 import { Container } from "../../components/Container";
 import { useRouter } from "next/router";
-import { useCollectionData, useDocumentData } from "react-firebase-hooks/firestore";
-import Header from "../../components/singleChats/SingleChatHeader";
-import RoomsHeader from "../../components/rooms/roomsHeader";
+import { useDocumentData } from "react-firebase-hooks/firestore";
 import SingleChatHeader from "../../components/singleChats/SingleChatHeader";
+import RoomsHeader from "../../components/rooms/RoomsHeader";
 
 
 export default function Chatroom() {

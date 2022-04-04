@@ -4,7 +4,7 @@ import { collection, query, where } from "firebase/firestore";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { db } from "../../../firebaseConfig";
 
-export default function Header({ chatData, user }) {
+export default function RoomsHeader({ chatData, user }) {
   const { colorMode } = useColorMode()
   const otherUsers = chatData.users?.filter(singleUser => user.email !== singleUser)
   const userAvatars = otherUsers?.map(singleUser => <Avatar key={Math.random()} name={singleUser} />)
