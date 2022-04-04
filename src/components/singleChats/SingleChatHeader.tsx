@@ -12,7 +12,7 @@ export default function SingleChatHeader({ chatData, user }) {
   )
   const headingName = foundUser?.length ? foundUser?.[0]?.email : filtered
   const timeAgo = foundUser?.length ? formatDistanceToNowStrict(new Date(foundUser?.[0].lastActive.toDate())) : "Not available"
-  console.log("shelasdasd")
+
   return (
     <Flex
       align="center"

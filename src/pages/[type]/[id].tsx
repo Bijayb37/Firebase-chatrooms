@@ -1,7 +1,7 @@
-import { Avatar, Flex, Text } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import { auth, db } from "../../../firebaseConfig";
-import { collection, doc, getDoc, query, setDoc, where } from "firebase/firestore";
-import React, { useRef, useState } from "react";
+import { doc } from "firebase/firestore";
+import React, { useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ChatMessages from "../../components/ChatMessages";
 import Chatbox from "../../components/Chatbox";

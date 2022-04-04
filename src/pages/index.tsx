@@ -1,5 +1,4 @@
 import { Container } from "../components/Container"
-import { DarkModeSwitch } from "../components/DarkModeSwitch"
 import Sidebar from "../components/Sidebar"
 
 const Home = () => {
