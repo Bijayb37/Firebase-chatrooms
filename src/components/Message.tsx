@@ -21,7 +21,6 @@ export default function Message({ message, photoURL, id }) {
       position="relative"
       textAlign={uid == id ? "right" : "left"}
       wordBreak="break-word"
-      minW="71px"
       color={uid == id ? "white" : textColor[colorMode]}
       >
       <Text>{message}</Text>

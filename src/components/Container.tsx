@@ -10,6 +10,7 @@ export const Container = (props: FlexProps) => {
       direction="row"
       alignItems="center"
       justifyContent="flex-start"
+      width="100vw"
       bg={bgColor[colorMode]}
       color={color[colorMode]}
       {...props}

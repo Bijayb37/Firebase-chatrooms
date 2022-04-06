@@ -4,9 +4,9 @@ import { useCollectionData, useDocumentData } from "react-firebase-hooks/firesto
 import { db } from "../../firebaseConfig";
 import Message from "./Message";
 
-export default function ChatMessages({ scrollRef, id }) {
+export default function ChatMessages({ scrollRef, id, chatType }) {
   const [values, loading, error] = useCollectionData(
-    collection(db, "chats", id, "messages")
+    query(collection(db, `${chatType}`, id, "messages"), orderBy("createdAt", 'asc'))
   )
 
   const messages = values?.map(msg => (

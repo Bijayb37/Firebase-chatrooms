@@ -1,7 +1,6 @@
 import {
   Flex,
   Stack,
-  StackDivider,
   Avatar,
   IconButton,
   Icon,
@@ -9,7 +8,7 @@ import {
 } from '@chakra-ui/react'
 import { IoLogOut, IoSunny, IoMoon } from 'react-icons/io5'
 import { signOut } from "firebase/auth"
-import { addDoc, collection, query, serverTimestamp, where } from "firebase/firestore"
+import { collection, query, where } from "firebase/firestore"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { useCollection } from 'react-firebase-hooks/firestore'
 import { auth, db } from "../../firebaseConfig"
@@ -17,7 +16,7 @@ import ChatModal from './ChatModal'
 import SingleChat from './singleChats/SingleChat'
 import ChatRooms from './rooms/ChatRooms'
 
-const Sidebar = (props) => {
+const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
   const handleClick = () => {
     signOut(auth)
   }
@@ -39,11 +38,11 @@ const Sidebar = (props) => {
   return (
     <Flex
       height="100vh"
-      max-width="30vw"
+      maxWidth={fullWidth ? "100vw" : "30vw"}
+      width={fullWidth ? "100vw" : ""}
       direction="column"
       borderRight="1px solid"
       borderColor={colorMode === 'light' ? 'gray.200' : 'gray.700'}
-      {...props}
     >
       <Flex flexWrap="wrap" direction="column">
         <Flex
@@ -57,14 +56,14 @@ const Sidebar = (props) => {
           <Stack maxWidth="30vw" direction="row" align="center">
             <IconButton
               // colorScheme='blue'
-              aria-label='Search database'
+              aria-label='Sign Out'
               icon={<Icon as={IoLogOut} />}
               onClick={handleClick}
               isRound
             />
             <IconButton
               // colorScheme='blue'
-              aria-label='Search database'
+              aria-label='Toggle Dark Mode'
               icon={colorMode === "light" ? <Icon as={IoMoon} /> : <Icon as={IoSunny} />}
               onClick={toggleColorMode}
               isRound
@@ -73,7 +72,7 @@ const Sidebar = (props) => {
         </Flex>
 
       </Flex>
-      <Stack maxWidth="30vw" direction="row" align="center" p="10px">
+      <Stack direction="row" align="center" p="10px">
         <ChatModal room title="Create New Room" />
         <ChatModal title="add Chat" />
       </Stack>
