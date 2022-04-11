@@ -30,9 +30,9 @@ export default function Chatbox({ scrollRef, id, chatType }) {
       position="sticky"
       bottom={0}
     >
-      <FormControl p={2} zIndex={3} as="form" display="flex" alignItems="centre">
-        <Input value={chat} onChange={handleChange} placeholder='Basic usage' />
-        <Button type="submit" onClick={sendMessage}>
+      <FormControl p={2} zIndex={3} as="form" display="flex" alignItems="center">
+        <Input size="lg" value={chat} onChange={handleChange} placeholder='Basic usage' />
+        <Button size="lg"  type="submit" onClick={sendMessage}>
           send
         </Button>
       </FormControl>
