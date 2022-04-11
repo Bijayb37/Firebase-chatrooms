@@ -1,3 +1,4 @@
+import { AddIcon } from '@chakra-ui/icons'
 import {
   Modal,
   ModalOverlay,
@@ -11,6 +12,7 @@ import {
   Input,
   FormErrorMessage,
   FormControl,
+  useMediaQuery,
 } from '@chakra-ui/react'
 import { validate } from "email-validator"
 import { addDoc, arrayUnion, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore'
@@ -20,6 +22,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, db } from '../../firebaseConfig'
 export default function ChatModal({ type, title }: { type: "room" | "chat" | "addPeople", title: string }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [isMobile] = useMediaQuery('(max-width: 768px)')
   const [chatName, setChatName] = useState("")
   const [isValid, setIsValid] = useState(true)
   const router = useRouter()
@@ -70,7 +73,7 @@ export default function ChatModal({ type, title }: { type: "room" | "chat" | "ad
 
   return (
     <>
-      <Button onClick={onOpen}>{title}</Button>
+      <Button size={isMobile ? "sm" : "md"} onClick={onOpen}>{isMobile ? <AddIcon /> : title}</Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

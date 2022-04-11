@@ -23,8 +23,8 @@ const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
   const router = useRouter()
 
   const handleClick = () => {
-    router.push('/')
     signOut(auth)
+    router.push('/')
   }
   const [chatValues] = useCollection(
     query(collection(db, "chats"), where('users', 'array-contains', user.email))

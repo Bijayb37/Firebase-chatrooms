@@ -13,6 +13,7 @@ export default function SingleChatHeader({ chatData, user }) {
   const [foundUser] = useCollectionData(
     query(collection(db, "users"), where('email', '==', filtered))
   )
+  console.log(foundUser)
   const headingName = foundUser?.length ? foundUser?.[0]?.email : filtered
   const timeAgo = foundUser?.length ? formatDistanceToNowStrict(new Date(foundUser?.[0].lastActive.toDate())) : "Not available"
 

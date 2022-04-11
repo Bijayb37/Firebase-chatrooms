@@ -31,12 +31,11 @@ export default function Chatbox({ scrollRef, id, chatType }) {
       bottom={0}
     >
       <FormControl p={2} zIndex={3} as="form" display="flex" alignItems="center">
-        <Input size="lg" value={chat} onChange={handleChange} placeholder='Basic usage' />
-        <Button size="lg"  type="submit" onClick={sendMessage}>
-          send
+        <Input size="lg" value={chat} onChange={handleChange} placeholder='Type Message' />
+        <Button size="lg" type="submit" onClick={sendMessage}>
+          Send
         </Button>
       </FormControl>
-
     </Flex>
   )
 }

@@ -1,13 +1,11 @@
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import { Avatar, AvatarGroup, Box, Button, Flex, Heading, IconButton, Text, useColorMode, useMediaQuery } from "@chakra-ui/react";
+import { Avatar, AvatarGroup, Box, Flex, Heading, IconButton, Text, useColorMode, useMediaQuery } from "@chakra-ui/react";
 import { formatDistanceToNowStrict } from "date-fns";
-import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
-import { db } from "../../../firebaseConfig";
 import ChatModal from "../ChatModal";
 
 export default function RoomsHeader({ chatData, user }) {
-  const [isMobile] = useMediaQuery('(max-width: 768px)')
+  const [isMobile] = useMediaQuery('(max-width: 680px)')
   const router = useRouter()
   const { colorMode } = useColorMode()
   const otherUsers = chatData.users?.filter(singleUser => user.email !== singleUser)
@@ -24,7 +22,7 @@ export default function RoomsHeader({ chatData, user }) {
       borderColor={colorMode === 'light' ? 'gray.200' : 'gray.700'}
       direction="row"
     >
-      <Flex>
+      <Flex align="center">
         <IconButton
           // colorScheme='blue'
           aria-label='Go Back'
@@ -34,13 +32,13 @@ export default function RoomsHeader({ chatData, user }) {
           onClick={() => router.push("/")}
           isRound
         />
-        <AvatarGroup mr={4} size='md' max={isMobile ? 1 : 4}>
+        <AvatarGroup size="md" max={isMobile ? 1 : 4}>
           {userAvatars}
         </AvatarGroup>
       </Flex>
       <Box maxWidth="70%">
-        <Heading size="md" isTruncated>{chatData.roomName}</Heading>
-        <Text>Last Active: {timeAgo}</Text>
+        <Heading size={isMobile ? "md" : "lg"} isTruncated>{chatData.roomName}</Heading>
+        {!isMobile && <Text>Last Active: {timeAgo}</Text>}
       </Box>
       <ChatModal type="addPeople" title="Add People" />
     </Flex>

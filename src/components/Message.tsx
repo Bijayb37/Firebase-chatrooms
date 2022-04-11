@@ -17,7 +17,6 @@ export default function Message({ message, photoURL, id }) {
       rounded="xl"
       margin={2}
       ml={uid == id ? "auto" : "0"}
-      maxW="80%"
       position="relative"
       textAlign={uid == id ? "right" : "left"}
       wordBreak="break-word"
