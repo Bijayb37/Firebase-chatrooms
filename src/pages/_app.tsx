@@ -3,9 +3,9 @@ import theme from '../theme'
 import { AppProps } from 'next/app'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, db } from '../../firebaseConfig'
-import { Login } from '../components/Login'
 import { useEffect } from 'react'
 import { doc, serverTimestamp, setDoc } from 'firebase/firestore'
+import { Login } from '../components/Login'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [user, loading] = useAuthState(auth)

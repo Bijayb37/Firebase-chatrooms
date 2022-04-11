@@ -1,6 +1,5 @@
 import { Box, Button, Flex, FormControl, Input } from "@chakra-ui/react";
-import { addDoc, collection, doc, FieldValue, serverTimestamp, setDoc } from "firebase/firestore";
-import { useRouter } from "next/router";
+import { addDoc, collection, serverTimestamp, updateDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../firebaseConfig";

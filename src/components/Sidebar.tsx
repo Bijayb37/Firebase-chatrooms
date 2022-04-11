@@ -15,13 +15,17 @@ import { auth, db } from "../../firebaseConfig"
 import ChatModal from './ChatModal'
 import SingleChat from './singleChats/SingleChat'
 import ChatRooms from './rooms/ChatRooms'
+import { useRouter } from 'next/router'
 
 const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
-  const handleClick = () => {
-    signOut(auth)
-  }
   const { colorMode, toggleColorMode } = useColorMode()
   const [user] = useAuthState(auth)
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push('/')
+    signOut(auth)
+  }
   const [chatValues] = useCollection(
     query(collection(db, "chats"), where('users', 'array-contains', user.email))
   )
@@ -73,8 +77,8 @@ const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
 
       </Flex>
       <Stack direction="row" align="center" p="10px">
-        <ChatModal room title="Create New Room" />
-        <ChatModal title="add Chat" />
+        <ChatModal type="room" title="Create New Room" />
+        <ChatModal type="chat" title="add Chat" />
       </Stack>
       <Stack
         direction="column"

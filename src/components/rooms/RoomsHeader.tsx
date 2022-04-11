@@ -1,7 +1,10 @@
 import { ArrowBackIcon } from "@chakra-ui/icons";
-import { Avatar, AvatarGroup, Box, Flex, Heading, IconButton, Text, useColorMode, useMediaQuery } from "@chakra-ui/react";
+import { Avatar, AvatarGroup, Box, Button, Flex, Heading, IconButton, Text, useColorMode, useMediaQuery } from "@chakra-ui/react";
 import { formatDistanceToNowStrict } from "date-fns";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
+import { db } from "../../../firebaseConfig";
+import ChatModal from "../ChatModal";
 
 export default function RoomsHeader({ chatData, user }) {
   const [isMobile] = useMediaQuery('(max-width: 768px)')
@@ -10,6 +13,7 @@ export default function RoomsHeader({ chatData, user }) {
   const otherUsers = chatData.users?.filter(singleUser => user.email !== singleUser)
   const userAvatars = otherUsers?.map(singleUser => <Avatar key={Math.random()} name={singleUser} />)
   const timeAgo = chatData.lastSent ? formatDistanceToNowStrict(new Date(chatData?.lastSent.toDate())) : "Not available"
+
   return (
     <Flex
       align="center"
@@ -35,6 +39,7 @@ export default function RoomsHeader({ chatData, user }) {
         <Heading size="md" isTruncated>{chatData.roomName}</Heading>
         <Text>Last Active: {timeAgo}</Text>
       </Box>
+      <ChatModal type="addPeople" title="Add People" />
     </Flex>
   )
 }
