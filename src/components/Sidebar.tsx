@@ -21,11 +21,7 @@ const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
   const { colorMode, toggleColorMode } = useColorMode()
   const [user] = useAuthState(auth)
   const router = useRouter()
-
-  const handleClick = () => {
-    signOut(auth)
-    router.push('/')
-  }
+  //get Collection Data for both chats & rooms
   const [chatValues] = useCollection(
     query(collection(db, "chats"), where('users', 'array-contains', user.email))
   )
@@ -39,6 +35,12 @@ const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
   const rooms = roomValues?.docs.map(room =>
     <ChatRooms key={room.id} id={room.id} data={room.data()} />
   )
+  //Button to log users out and push to index page
+  const handleLogOut = () => {
+    signOut(auth)
+    router.push('/')
+  }
+
   return (
     <Flex
       height="100vh"
@@ -59,14 +61,12 @@ const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
           <Avatar src={user.photoURL} />
           <Stack maxWidth="30vw" direction="row" align="center">
             <IconButton
-              // colorScheme='blue'
               aria-label='Sign Out'
               icon={<Icon as={IoLogOut} />}
-              onClick={handleClick}
+              onClick={handleLogOut}
               isRound
             />
             <IconButton
-              // colorScheme='blue'
               aria-label='Toggle Dark Mode'
               icon={colorMode === "light" ? <Icon as={IoMoon} /> : <Icon as={IoSunny} />}
               onClick={toggleColorMode}

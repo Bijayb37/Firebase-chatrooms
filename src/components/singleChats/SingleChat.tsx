@@ -1,7 +1,6 @@
-import { Avatar, Box, Flex, Text, useColorMode } from "@chakra-ui/react";
+import { Avatar, Flex, Text, useColorMode } from "@chakra-ui/react";
 import { collection, query, where } from "firebase/firestore";
 import { useRouter } from "next/router";
-import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { auth, db } from "../../../firebaseConfig";

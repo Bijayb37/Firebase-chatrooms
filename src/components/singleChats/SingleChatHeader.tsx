@@ -9,12 +9,13 @@ import { db } from "../../../firebaseConfig";
 export default function SingleChatHeader({ chatData, user }) {
   const { colorMode } = useColorMode()
   const router = useRouter()
+  //filter the other user then use that to find the other user's data from users collection
   const filtered = chatData?.users?.filter(singleUser => singleUser !== user.email)[0]
   const [foundUser] = useCollectionData(
     query(collection(db, "users"), where('email', '==', filtered))
   )
-  console.log(foundUser)
   const headingName = foundUser?.length ? foundUser?.[0]?.email : filtered
+  //format time
   const timeAgo = foundUser?.length ? formatDistanceToNowStrict(new Date(foundUser?.[0].lastActive.toDate())) : "Not available"
 
   return (

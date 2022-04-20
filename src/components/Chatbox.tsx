@@ -1,5 +1,5 @@
-import { Box, Button, Flex, FormControl, Input } from "@chakra-ui/react";
-import { addDoc, collection, serverTimestamp, updateDoc } from "firebase/firestore";
+import { Button, Flex, FormControl, Input } from "@chakra-ui/react";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../firebaseConfig";
@@ -11,6 +11,9 @@ export default function Chatbox({ scrollRef, id, chatType }) {
   const handleChange = e => {
     setChat(e.target.value)
   }
+  /*get uid and phoroURL from current User then send message 
+  and set chat state to "", then scroll to latst message
+  */
   const sendMessage = async (e) => {
     const { uid, photoURL } = user
     e.preventDefault()

@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, FormControl, Heading, Icon, Input, Stack, Text, useColorMode, useMediaQuery } from '@chakra-ui/react'
+import { Button, Divider, Flex, Heading, Icon, Input, Stack, Text, useColorMode, useMediaQuery } from '@chakra-ui/react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect } from 'firebase/auth'
 import { auth, provider } from '../../firebaseConfig'
 import { DarkModeSwitch } from './DarkModeSwitch'
@@ -37,7 +37,7 @@ export const Login = () => {
         console.log(error.message)
       })
   }
-
+  
   const signInEmail = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {

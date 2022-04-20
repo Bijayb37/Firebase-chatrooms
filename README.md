@@ -1,39 +1,43 @@
-# Example app with [chakra-ui](https://github.com/chakra-ui/chakra-ui) and TypeScript
+# Issue Tracker built with MERN STACK
 
-This example features how to use [chakra-ui](https://github.com/chakra-ui/chakra-ui) as the component library within a Next.js app with TypeScript.
+## Demo App
 
-Next.js and chakra-ui have built-in TypeScript declarations, so we'll get autocompletion for their modules straight away.
+[deployed on vercel](https://firebase-chatrooms.vercel.app/)
 
-We are connecting the Next.js `_app.js` with `chakra-ui`'s Provider and theme so the pages can have app-wide dark/light mode. We are also creating some components which shows the usage of `chakra-ui`'s style props.
+## Built using
 
-## Preview
+#### Front-end Tech
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+- [ReactJS](https://reactjs.org/) - Frontend frameworkaction creators to return a function
+- [Next.js](https://nextjs.org/) - React production framework
+- [Chakra-UI](https://chakra-ui.com/) - Chakra-UI & Icons library
+- [React Icons](https://react-icons.github.io/react-icons/) - React Icons library
+- [date-fns](https://date-fns.org/) - Library for manipulating/formatting of timestamps
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-chakra-ui-typescript)
+#### Back-end Tech
 
-## Deploy your own
+- [Firebase](https://firebase.google.com/) - Platform for mobile and web development
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+## Features
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-chakra-ui-typescript&project-name=with-chakra-ui-typescript&repository-name=with-chakra-ui-typescript)
+-	Authentication with firebase auth connected to google, or simple email and password
+- Guest Login and account
+- Chat with a single person added by email
+- Chatroom with multiple people
+- Sidebar chat navigation for all the chatrooms
+-	Responsive UI for desktop and mobile
+-	Loading spinners for backend processes
 
-## How to use
+## Usage
 
-### Using `create-next-app`
+#### Client:
+Change firebase config file to connect your own firebase app
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Run client:
 
-```bash
-npx create-next-app --example with-chakra-ui-typescript with-chakra-ui-typescript-app
-# or
-yarn create next-app --example with-chakra-ui-typescript with-chakra-ui-typescript-app
+```
+cd client
+npm install
+npm start
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-Chakra has supported Gradients and RTL in `v1.1`. To utilize RTL, [add RTL direction and swap](https://chakra-ui.com/docs/features/rtl-support).
-
-If you don't have multi-direction app, you should make `<Html lang="ar" dir="rtl">` inside `_document.ts`.

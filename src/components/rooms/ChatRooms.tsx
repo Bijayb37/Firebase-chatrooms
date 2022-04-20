@@ -1,16 +1,16 @@
 import { Avatar, Flex, useColorMode, Text, AvatarGroup } from "@chakra-ui/react"
-import { query, collection, where } from "firebase/firestore"
 import { useRouter } from "next/router"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { useCollectionData } from "react-firebase-hooks/firestore"
 import { auth, db } from "../../../firebaseConfig"
 
 export default function ChatRooms({ data, id }) {
   const [user] = useAuthState(auth)
   const { colorMode } = useColorMode()
   const router = useRouter()
+  //filter out other users so only avatars of other users show up
   const otherUsers = data.users?.filter(singleUser => user.email !== singleUser)
-  const userAvatars = otherUsers?.map(singleUser => <Avatar key={Math.random()} name={singleUser}/>)
+  const userAvatars = otherUsers?.map(singleUser => <Avatar key={Math.random()} name={singleUser} />)
+  //push to url for specific chat
   const handleClick = () => {
     router.push(`/rooms/${id}`)
   }
