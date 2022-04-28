@@ -1,4 +1,5 @@
-# Discord like ChatRooms App with firebase, nextJS, chakra-UI
+# F.R.I.E.N.D.S chatrooms 
+## made using next.js, firebase (firestore and auth), chakra-ui
 
 ## Demo App
 Contact Me at bijay.work37@gmail.com as many people have used the guest account now so easier to find me by email
