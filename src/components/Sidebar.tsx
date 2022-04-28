@@ -15,12 +15,10 @@ import { auth, db } from "../../firebaseConfig"
 import ChatModal from './ChatModal'
 import SingleChat from './singleChats/SingleChat'
 import ChatRooms from './rooms/ChatRooms'
-import { useRouter } from 'next/router'
 
 const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
   const { colorMode, toggleColorMode } = useColorMode()
   const [user] = useAuthState(auth)
-  const router = useRouter()
   //get Collection Data for both chats & rooms
   const [chatValues] = useCollection(
     query(collection(db, "chats"), where('users', 'array-contains', user.email))
@@ -38,7 +36,6 @@ const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
   //Button to log users out and push to index page
   const handleLogOut = () => {
     signOut(auth)
-    router.push('/')
   }
 
   return (
@@ -50,13 +47,12 @@ const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
       borderRight="1px solid"
       borderColor={colorMode === 'light' ? 'gray.200' : 'gray.700'}
     >
-      <Flex flexWrap="wrap" direction="column">
+      <Flex flexWrap="wrap" direction="column" position="sticky" top="0">
         <Flex
           justify="space-between"
           height="71px"
           align="center"
           p="10px"
-
         >
           <Avatar src={user.photoURL} />
           <Stack maxWidth="30vw" direction="row" align="center">
@@ -74,14 +70,14 @@ const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
             />
           </Stack>
         </Flex>
-
+        <Stack direction="row" align="center" p="10px">
+          <ChatModal type="room" title="Create New Room" />
+          <ChatModal type="chat" title="add Chat" />
+        </Stack>
       </Flex>
-      <Stack direction="row" align="center" p="10px">
-        <ChatModal type="room" title="Create New Room" />
-        <ChatModal type="chat" title="add Chat" />
-      </Stack>
       <Stack
         direction="column"
+        overflow="scroll"
       >
         {rooms}
         {chats}

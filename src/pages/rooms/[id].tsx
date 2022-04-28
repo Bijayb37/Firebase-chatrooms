@@ -17,6 +17,7 @@ export default function Chatroom() {
   const [user] = useAuthState(auth)
   const router = useRouter()
   const { id } = router.query
+  console.log(router.query)
   const lastMessage = useRef(null)
   // for header I want other users name and details
   const [values] = useDocumentData(
@@ -34,8 +35,8 @@ export default function Chatroom() {
         <Flex height="71px">
           {values && <RoomsHeader chatData={values} user={user} />}
         </Flex>
-        <ChatMessages scrollRef={lastMessage} chatType="rooms" id={id} />
-        <Chatbox scrollRef={lastMessage} id={id} chatType="rooms" />
+        <ChatMessages scrollRef={lastMessage} chatType="rooms" id={id.toString()} />
+        <Chatbox scrollRef={lastMessage} id={id.toString()} chatType="rooms" />
 
       </Flex>
     </Container>

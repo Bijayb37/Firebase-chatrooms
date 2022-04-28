@@ -32,8 +32,8 @@ export default function Chatroom() {
         maxWidth="100%"
       >
         {values && <SingleChatHeader chatData={values} user={user} />}
-        <ChatMessages scrollRef={lastMessage} chatType="chats" id={id} />
-        <Chatbox scrollRef={lastMessage} id={id} chatType="chats" />
+        <ChatMessages scrollRef={lastMessage} chatType="chats" id={id.toString()} />
+        <Chatbox scrollRef={lastMessage} id={id.toString()} chatType="chats" />
       </Flex>
     </Container>
   )

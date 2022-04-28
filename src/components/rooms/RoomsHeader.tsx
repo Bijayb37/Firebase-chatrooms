@@ -2,9 +2,10 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 import { Avatar, AvatarGroup, Box, Flex, Heading, IconButton, Text, useColorMode, useMediaQuery } from "@chakra-ui/react";
 import { formatDistanceToNowStrict } from "date-fns";
 import { useRouter } from "next/router";
+import { chatHeadertypes } from "../../utils/types";
 import ChatModal from "../ChatModal";
 
-export default function RoomsHeader({ chatData, user }) {
+export default function RoomsHeader({ chatData, user }: chatHeadertypes) {
   const [isMobile] = useMediaQuery('(max-width: 680px)')
   const router = useRouter()
   const { colorMode } = useColorMode()

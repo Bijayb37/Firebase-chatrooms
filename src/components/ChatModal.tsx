@@ -20,7 +20,9 @@ import { useRouter } from 'next/router'
 import { SyntheticEvent, useState } from "react"
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, db } from '../../firebaseConfig'
-export default function ChatModal({ type, title }: { type: "room" | "chat" | "addPeople", title: string }) {
+import { chatModalProps } from '../utils/types'
+
+export default function ChatModal({ type, title }: chatModalProps) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [isMobile] = useMediaQuery('(max-width: 768px)')
   const [chatName, setChatName] = useState("")

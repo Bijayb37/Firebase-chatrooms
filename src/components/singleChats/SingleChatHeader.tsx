@@ -5,8 +5,9 @@ import { collection, query, where } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { db } from "../../../firebaseConfig";
+import { chatHeadertypes } from "../../utils/types";
 
-export default function SingleChatHeader({ chatData, user }) {
+export default function SingleChatHeader({ chatData, user }: chatHeadertypes) {
   const { colorMode } = useColorMode()
   const router = useRouter()
   //filter the other user then use that to find the other user's data from users collection

@@ -3,8 +3,9 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../firebaseConfig";
+import { chatProps } from "../utils/types";
 
-export default function Chatbox({ scrollRef, id, chatType }) {
+export default function Chatbox({ scrollRef, id, chatType }: chatProps) {
   const [user] = useAuthState(auth)
   const messageRef = collection(db, `${chatType}`, id, "messages")
   const [chat, setChat] = useState('')

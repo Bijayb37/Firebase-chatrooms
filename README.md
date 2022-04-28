@@ -1,7 +1,7 @@
-# Issue Tracker built with MERN STACK
+# Discord like ChatRooms App with firebase, nextJS, chakra-UI
 
 ## Demo App
-
+Contact Me at bijay.work37@gmail.com as many people have used the guest account now so easier to find me by email
 [deployed on vercel](https://firebase-chatrooms.vercel.app/)
 
 ## Built using

@@ -14,7 +14,6 @@ export const Login = () => {
   const { colorMode } = useColorMode()
   const bgColor = { light: 'gray.100', dark: 'gray.800' }
   const bgLogin = { light: 'white', dark: 'gray.700' }
-
   const signIn = () => {
     isMobile
       ? signInWithRedirect(auth, provider).catch(alert)
@@ -37,7 +36,7 @@ export const Login = () => {
         console.log(error.message)
       })
   }
-  
+
   const signInEmail = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {

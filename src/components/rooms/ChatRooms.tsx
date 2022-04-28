@@ -1,9 +1,10 @@
 import { Avatar, Flex, useColorMode, Text, AvatarGroup } from "@chakra-ui/react"
 import { useRouter } from "next/router"
 import { useAuthState } from "react-firebase-hooks/auth"
-import { auth, db } from "../../../firebaseConfig"
+import { auth } from "../../../firebaseConfig"
+import { chatRoomProps } from "../../utils/types"
 
-export default function ChatRooms({ data, id }) {
+export default function ChatRooms({ data, id }: chatRoomProps) {
   const [user] = useAuthState(auth)
   const { colorMode } = useColorMode()
   const router = useRouter()

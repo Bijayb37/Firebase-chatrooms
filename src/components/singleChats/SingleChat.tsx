@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { auth, db } from "../../../firebaseConfig";
+import { singleChatProps } from "../../utils/types";
 
-export default function ChatRooms({ users, id }) {
+export default function ChatRooms({ users, id }: singleChatProps) {
   const [user] = useAuthState(auth)
   const { colorMode } = useColorMode()
   const router = useRouter()
