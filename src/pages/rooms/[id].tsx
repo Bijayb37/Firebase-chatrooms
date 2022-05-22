@@ -17,7 +17,6 @@ export default function Chatroom() {
   const [user] = useAuthState(auth)
   const router = useRouter()
   const { id } = router.query
-  console.log(router.query)
   const lastMessage = useRef(null)
   // for header I want other users name and details
   const [values] = useDocumentData(

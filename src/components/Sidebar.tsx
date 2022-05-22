@@ -72,7 +72,7 @@ const Sidebar = ({ fullWidth }: { fullWidth?: boolean }) => {
         </Flex>
         <Stack direction="row" align="center" p="10px">
           <ChatModal type="room" title="Create New Room" />
-          <ChatModal type="chat" title="add Chat" />
+          <ChatModal type="chat" title="Add Chat" />
         </Stack>
       </Flex>
       <Stack

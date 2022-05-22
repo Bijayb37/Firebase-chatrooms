@@ -71,10 +71,9 @@ export default function ChatModal({ type, title }: chatModalProps) {
 
   const header = type === "room" ? "Create New Room" : "Add Person To Chat"
   const placeHolder = type === "room" ? "Room Name" : "Email"
-
   return (
     <>
-      <Button size={isMobile ? "sm" : "md"} onClick={onOpen}>{isMobile ? <AddIcon /> : title}</Button>
+      <Button size={isMobile ? "sm" : "md"} onClick={onOpen}>{title}</Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
