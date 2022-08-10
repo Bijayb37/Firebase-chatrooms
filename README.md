@@ -9,7 +9,7 @@ Contact Me at bijay.work37@gmail.com as many people have used the guest account 
 
 #### Front-end Tech
 
-- [ReactJS](https://reactjs.org/) - Frontend frameworkaction creators to return a function
+- [ReactJS](https://reactjs.org/) - Frontend framework
 - [Next.js](https://nextjs.org/) - React production framework
 - [Chakra-UI](https://chakra-ui.com/) - Chakra-UI & Icons library
 - [React Icons](https://react-icons.github.io/react-icons/) - React Icons library
